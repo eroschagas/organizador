@@ -3,7 +3,11 @@ const path = require("path");
 require("dotenv").config();
 
 const { pastas } = require("./pastas");
-const pasta = process.env.FOLDER_LOCATION;
+const pasta = substituirBarra(process.env.FOLDER_LOCATION);
+
+function substituirBarra(str) {
+	return str.replace(/\\+/g, "/");
+}
 
 function lerArquivosDaPasta(caminho) {
 	return new Promise((resolve, reject) => {

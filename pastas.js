@@ -12,7 +12,7 @@ const pastas = {
 	],
 	Documento: [".txt", ".pdf", ".doc", ".docx", ".odt", ".rtf", ".xml"],
 	Planilha: [".xls", ".xlsx", ".ods", ".csv"],
-	Vídeo: [".mp4", ".webm", ".avi", ".mov", ".wmv", ".mkv"],
+	Vídeo: [".mp4", ".webm", ".avi", ".mov", ".wmv", ".mkv", ".asf"],
 	Código: [
 		".json",
 		".php",
@@ -28,7 +28,7 @@ const pastas = {
 	Fonte: [".ttf", ".woff", ".otf"],
 	Áudio: [".mp3", ".wav", ".ogg", ".flac", ".aac", ".m4a"],
 	Apresentação: [".ppt", ".pptx", ".key"],
-	Compactado: [".bak", ".zip", ".tar", ".gz", ".7z"],
+	Compactado: [".bak", ".zip", ".tar", ".gz", ".7z", ".rar"],
 	"Banco de dados": [".sql", ".sqlite", ".db", ".mdb", ".accdb"],
 	"e-book": [".epub", ".mobi"],
 	Firmware: [".bin", ".hex"],
