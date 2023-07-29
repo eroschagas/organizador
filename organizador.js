@@ -1,43 +1,11 @@
 const fs = require("fs");
 const path = require("path");
+require("dotenv").config();
+const config = require("./pastas");
 
-const pasta = "C:\\Users\\Desenvolvimento\\Desktop";
-const pastas = {
-	Imagem: [
-		".png",
-		".jpg",
-		".jpeg",
-		".svg",
-		".xcf",
-		".gif",
-		".bmp",
-		".tiff",
-		".webp",
-	],
-	Documento: [".txt", ".pdf", ".doc", ".docx", ".odt", ".rtf", ".xml"],
-	Planilha: [".xls", ".xlsx", ".ods", ".csv"],
-	Vídeo: [".mp4", ".webm", ".avi", ".mov", ".wmv", ".mkv"],
-	Código: [
-		".json",
-		".php",
-		".js",
-		".html",
-		".css",
-		".py",
-		".java",
-		".cpp",
-		".c",
-	],
-	Instalador: [".exe", ".msi", ".dmg", ".deb", ".rpm"],
-	Fonte: [".ttf", ".woff", ".otf"],
-	Áudio: [".mp3", ".wav", ".ogg", ".flac", ".aac"],
-	Apresentação: [".ppt", ".pptx", ".key"],
-	Compactado: [".bak", ".zip", ".tar", ".gz", ".7z"],
-	"Banco de dados": [".sql", ".sqlite", ".db", ".mdb", ".accdb"],
-	"e-book": [".epub", ".mobi"],
-	Firmware: [".bin", ".hex"],
-	"Imagem de disco": [".iso", ".img"],
-};
+const pasta = process.env.FOLDER_LOCATION;
+const pastas = config.pastas;
+
 function lerArquivosDaPasta(caminho) {
 	return new Promise((resolve, reject) => {
 		fs.readdir(caminho, (err, arquivos) => {
@@ -62,7 +30,7 @@ const moverArquivo = async (nomeArquivo, novaPasta) => {
 		`${pasta}\\${novaPasta}\\${nomeArquivo}`,
 		(err) => {
 			if (err) throw err;
-		}
+		},
 	);
 };
 
@@ -82,7 +50,7 @@ const organizaArquivos = async () => {
 
 		const allExtensions = Object.values(pastas).flat();
 		const duplicateExtensions = allExtensions.filter(
-			(ext, index) => allExtensions.indexOf(ext) !== index
+			(ext, index) => allExtensions.indexOf(ext) !== index,
 		);
 		if (duplicateExtensions.length > 0) {
 			console.log("Remova extensões duplicadas:", duplicateExtensions);
