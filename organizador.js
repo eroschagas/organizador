@@ -1,10 +1,9 @@
 const fs = require("fs");
 const path = require("path");
 require("dotenv").config();
-const config = require("./pastas");
 
+const { pastas } = require("./pastas");
 const pasta = process.env.FOLDER_LOCATION;
-const pastas = config.pastas;
 
 function lerArquivosDaPasta(caminho) {
 	return new Promise((resolve, reject) => {
